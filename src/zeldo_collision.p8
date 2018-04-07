@@ -68,7 +68,7 @@ end
 
 -- moves, with actor collisions
 function move_actor_check(a, actors, dx, dy)
-	local other_list = actor_collision(a, actors, dx, dy) 
+	local other_list = actor_collision(a, actors, dx, dy)
 
 	if #other_list != 0 then
 		hit_actors(a,other_list)
@@ -96,7 +96,7 @@ function actor_collision(a, actors, dx, dy)
 				local y=(a.y+dy) - a2.y
 				if ((abs(x) < (a.w+a2.w)) and
 					(abs(y) < (a.h+a2.h)))
-				then 
+				then
 					-- check if moving together
 					if (dx != 0 and abs(x) <
 							abs(a.x-a2.x)) then
@@ -140,6 +140,23 @@ function has_touchable(actor_list)
 		end
 	end
 	return false
+end
+
+function draw_actor(a)
+	local xoff = room_x*8*16
+	local yoff = room_y*8*16
+	local x1 = (a.x-.5) * 8
+	local y1 = (a.y-.5)*8
+	if (a.spr >= 0 and a.spr <= 8) then --If its the astronaut sprite
+
+		if btn(0)
+		then
+		end
+
+else
+	spr(a.spr, x1-xoff, y1-yoff)
+end
+
 end
 
 -- todo, remove this for final game.
