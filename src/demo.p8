@@ -24,7 +24,7 @@ function gen_debug_enem2(x, y)
 	return e
 end
 
-function make_player(x, y)
+function gen_player(x, y)
 	pl = make_col_actor(8,8)
 	pl.spd = .05
 	pl.w, pl.h = .5, .5
@@ -42,17 +42,22 @@ end
 
 function _init()
 	global_time = 0
+	reset_time()
+	-- frozen while text box is going
+	tbox("@he:0 1 2 3 4 5 6 7 8 9 0 1 2 3 4:hello, my name is bob and my real name is not sid.:i am a carpenter|hello:meep:no")
 end
 
 function _update60()
 	move_actors(actors, function(x, y) return fget(mget(x, y), 1) end)
+	tbox_interact()
 	global_time += 1
 end
 
 function _draw()
 	cls()
-	print('pico_project!', 20, 20, 7)
 
 	map(0, 0, 0, 0, 16, 16)
 	foreach(actors, function(a) debug_actor_box(a, 9) end)
+
+	tbox_draw(7, 0, 2, true)
 end
