@@ -1,7 +1,15 @@
 function init_world()
 	reset_time()
-	tbox("|bob@he%baou%bni: *Snickering in Not-Alien*")
-	tbox("|bob@he%baou%bni:4 5 6 7 8 9 0 1 2 3 4")
+	tbox("|alien1 & alien2: *snickering in not-alien*")
+	tbox("|alien2:*whispering* i think he is awake")
+	tbox("|alien1:yes hello?")
+	tbox("|alien2:hi there! welcome to our planet!")
+	tbox("|alien1:do not feel alarmed. we are commissioned researchers. We just want to learn about your species.")
+	tbox("|alien2:to what does your species call itself")
+	tbox("|bob@he%human%shepbird%buttface%daddy:to what does your species call itself")
+	tbox("|alien1:ok [name]")
+	tbox("|alien1:we just need to run a few tests to understand your species")
+	tbox("|alien2:could you please move to the room ahead so we can start?")
 end
 
 function draw_world()
