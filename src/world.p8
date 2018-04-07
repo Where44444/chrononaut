@@ -1,5 +1,6 @@
 function init_world()
 	reset_time()
+	tbox("|bob@he%baou%bni: *Snickering in Not-Alien*")
 	tbox("|bob@he%baou%bni:4 5 6 7 8 9 0 1 2 3 4")
 end
 
@@ -15,7 +16,6 @@ function update_world()
 		pl_room_update()
 	end
 	
-	update_room()
 	update_room_switch()
 
 	tbox_interact(function(id, pick, select) tbox("|miii:okay i wil lguess "..pick) end)
