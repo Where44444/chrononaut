@@ -5,7 +5,8 @@ end
 
 function draw_world()
 	draw_rooms()
-	foreach(actors, function(a) debug_actor_box(a, 9) end)
+	--foreach(actors, function(a) debug_actor_box(a, 9) end)
+	foreach(actors,draw_actor)
 	tbox_draw(7, 0, 2)
 end
 
@@ -14,7 +15,7 @@ function update_world()
 		move_actors(actors, function(x, y) return fget(mget(x, y), 1) end)
 		pl_room_update()
 	end
-	
+
 	update_room()
 	update_room_switch()
 
@@ -28,6 +29,7 @@ end
 
 function gen_player(x, y)
 	pl = make_col_actor(8,8)
+	pl.spr = 0
 	pl.spd = .05
 	pl.w, pl.h = .5, .5
 	pl.move = function(a) move_controller(a, a.spd) end
@@ -63,4 +65,3 @@ function gen_debug_enem2(x, y)
 	add(actors,e)
 	return e
 end
-
