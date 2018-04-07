@@ -1,3 +1,3 @@
 # chrononaut
-A astro pico 8 game.
+An astro pico 8 game.
 
