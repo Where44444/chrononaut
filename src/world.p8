@@ -1,4 +1,7 @@
 function init_world()
+	actors = {}
+
+	spawn_doors()
 	reset_time()
 	tbox("|alien1 & alien2: *snickering in not-alien*")
 	tbox("|alien2:*whispering* i think he is awake")
@@ -14,18 +17,20 @@ end
 
 function draw_world()
 	draw_rooms()
-	foreach(actors, function(a) debug_actor_box(a, 9) end)
+	--foreach(actors, function(a) debug_actor_box(a, 9) end)
+	foreach(actors,draw_actor)
 	tbox_draw(7, 0, 2)
 end
 
 function update_world()
 	if not room_switching and not tbox_active() then
-		move_actors(actors, function(x, y) return fget(mget(x, y), 1) end)
+		move_actors(actors, function(x, y) return fget(mget(x, y), 0) end)
 		pl_room_update()
 	end
-	
-	update_room_switch()
 
+	update_room()
+
+	update_room_switch()
 	tbox_interact(function(id, pick, select) tbox("|miii:okay i wil lguess "..pick) end)
 end
 
@@ -36,13 +41,14 @@ end
 
 function gen_player(x, y)
 	pl = make_col_actor(8,8)
+	pl.spr = 0
 	pl.spd = .05
-	pl.w, pl.h = .5, .5
+	pl.w, pl.h = .3, .3
 	pl.move = function(a) move_controller(a, a.spd) end
 	pl.inertia = .6
 	pl.bounce = 0
 	pl.touchable = true
-	pl.solid = false
+	pl.solid = true
 	add(actors,pl)
 end
 
@@ -71,4 +77,3 @@ function gen_debug_enem2(x, y)
 	add(actors,e)
 	return e
 end
-
