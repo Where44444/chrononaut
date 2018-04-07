@@ -7,10 +7,10 @@ function init_world()
 	tbox("|alien2:*whispering* I think he is awake")
 	tbox("|alien1:yes hello?")
 	tbox("|alien2:hi there! welcome to our planet!")
-	tbox("|alien1:do not feel alarmed. we are commissioned researchers. We just want to learn about your species.")
+	tbox("|alien1:do not feel alarmed. we just want to learn about your species.")
 	tbox("|alien2:to what does your species call itself")
 	tbox("|bob@he%human%shepbird%buttface%daddy:to what does your species call itself")
-	tbox("|alien1:ok" + "dude")
+	tbox("|alien1:ok dude")
 	tbox("|alien2@he%sure%lolno:would it be chill if you just ran around the map and did random crap")
 end
 
