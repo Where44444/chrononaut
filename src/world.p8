@@ -1,3 +1,5 @@
+player_species=""
+
 function init_world()
 	actors = {}
 
@@ -26,7 +28,8 @@ end
 
 function tbox_callback(id, select_text, select_num)
 	if id == "species_call" then
-		tbox("|alien1:ok. I would've preferred ET but "..select_text.."is also nice.")
+		player_species=select_text
+		tbox("|alien1:ok. I would've preferred et but "..player_species.." is also nice.")
 	end
 end
 
