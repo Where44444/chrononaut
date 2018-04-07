@@ -17,6 +17,15 @@ function set_room(x, y)
 	room_x, room_y = x, y
 	room_nxt_x = room_x
 	room_nxt_y = room_y
+
+	tbox("|alien1 & alien2: *snickering*")
+	tbox("|alien2:i think he is awake")
+	tbox("|alien1:yes hello?")
+	tbox("|alien2:hi there! welcome to our planet!")
+	tbox("|alien1:do not feel alarmed. we are scientists here to help.")
+	tbox("|alien1:we want to learn more about your species.")
+	tbox("|alien2:tell us. what does your species call itself?")
+	tbox("|alien1@species_call%human%shepbird%buttface%daddy:to what does your species call itself")
 end
 
 function switch_room(dir)

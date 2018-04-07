@@ -1,18 +1,10 @@
+player_species=""
+
 function init_world()
 	actors = {}
 
 	spawn_doors()
 	reset_time()
-	tbox("|alien1 & alien2: *snickering in not-alien*")
-	tbox("|alien2:*whispering* I think he is awake")
-	tbox("|alien1:yes hello?")
-	tbox("|alien2:hi there! welcome to our planet!")
-	tbox("|alien1:do not feel alarmed. we are commissioned researchers. We just want to learn about your species.")
-	tbox("|alien2:to what does your species call itself")
-	tbox("|bob@he%human%shepbird%buttface%daddy:to what does your species call itself")
-	tbox("|alien1:ok [name]")
-	tbox("|alien1:we don't really have that exciting for you to do though.")
-	tbox("|alien2@he%sure%lol no:would it be chill if you just ran around the map and did random crap")
 end
 
 function draw_world()
@@ -30,7 +22,14 @@ function update_world()
 
 	update_room_switch()
 	if not room_switching then
-		tbox_interact(function(id, pick, select) tbox("|miii:okay i wil lguess "..pick) end)
+		tbox_interact(tbox_callback)
+	end
+end
+
+function tbox_callback(id, select_text, select_num)
+	if id == "species_call" then
+		player_species=select_text
+		tbox("|alien1:ok. I would've preferred et but "..player_species.." is also nice.")
 	end
 end
 
