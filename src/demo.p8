@@ -45,13 +45,12 @@ function _init()
 	global_time = 0
 	reset_time()
 	-- frozen while text box is going
-	tbox("@he:0 1 2 3 4 5 6 7 8 9 0 1 2 3 4:hello, my name is bob and my real name is not sid.:i am a carpenter|hello:meep:no")
+	tbox("|bob@he%baou%bni:4 5 6 7 8 9 0 1 2 3 4")
 end
 
 function _update60()
 	move_actors(actors, function(x, y) return fget(mget(x, y), 1) end)
-
-
+	
 	if btnp(0) then
 		switch_room(0)
 	elseif btnp(1) then
@@ -63,7 +62,7 @@ function _update60()
 	end
 
 	update_room_switch()
-	tbox_interact()
+	tbox_interact(function(id, pick, select) tbox("|miii:okay i wil lguess "..pick) end)
 	global_time += 1
 end
 
@@ -73,5 +72,5 @@ function _draw()
 	draw_rooms()
 	foreach(actors, function(a) debug_actor_box(a, 9) end)
 
-	tbox_draw(7, 0, 2, true)
+	tbox_draw(7, 0, 2)
 end

@@ -13,7 +13,6 @@ end
 
 function switch_room(dir)
 	if not room_switching then
-		printh("switch")
 		if dir == 0 then
 			room_nxt_x = max(0, room_x-1)
 			room_x_spd = -wld_spd
