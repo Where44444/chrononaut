@@ -2,10 +2,20 @@ function init_title()
 	title_parts = {}
 end
 
+num = 0
 function draw_title()
 	foreach(title_parts, draw_title_part)
+  num += 1
+	if (num % 80 < 20) then
+		spr(0, title_ax+title_tx-4, title_ay+title_ty-4)
+	elseif (num % 80 < 40) then
+			spr(3, title_ax+title_tx-4, title_ay+title_ty-4)
+		elseif (num % 80 < 60) then
+				spr(6, title_ax+title_tx-4, title_ay+title_ty-4)
+		else
+					spr(3, title_ax+title_tx-4, title_ay+title_ty-4,1,1,true,false)
+				end
 
-	spr(0, title_ax+title_tx-4, title_ay+title_ty-4)
 
 	print("chrononaut", title_tx-19, title_ty-2, 1)
 	print("chrononaut", title_tx-20, title_ty-3, 7)
