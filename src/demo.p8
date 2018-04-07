@@ -24,9 +24,7 @@ function gen_debug_enem2(x, y)
 	return e
 end
 
-function _init()
-	global_time = 0
-
+function make_player(x, y)
 	pl = make_col_actor(8,8)
 	pl.spd = .05
 	pl.w, pl.h = .5, .5
@@ -36,12 +34,14 @@ function _init()
 	pl.touchable = true
 	pl.solid = false
 	add(actors,pl)
+end
 
-	gen_debug_enemy(10, 10)
-	gen_debug_enemy(11, 11)
-	gen_debug_enemy(12, 12)
-	gen_debug_enemy(13, 13)
-	gen_debug_enem2(8, 8)
+function reset_time()
+	gen_player(3, 3)
+end
+
+function _init()
+	global_time = 0
 end
 
 function _update60()
