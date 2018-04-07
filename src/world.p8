@@ -27,10 +27,10 @@ function update_world()
 		pl_room_update()
 	end
 
-	update_room()
-
 	update_room_switch()
-	tbox_interact(function(id, pick, select) tbox("|miii:okay i wil lguess "..pick) end)
+	if not room_switching then
+		tbox_interact(function(id, pick, select) tbox("|miii:okay i wil lguess "..pick) end)
+	end
 end
 
 function reset_time()
