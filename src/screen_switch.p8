@@ -24,8 +24,7 @@ function set_room(x, y)
 	tbox("|alien2:hi there! welcome to our planet!")
 	tbox("|alien1:do not feel alarmed. we are scientists here to help.")
 	tbox("|alien1:we want to learn more about your species.")
-	tbox("|alien2:tell us. what does your species call itself?")
-	tbox("|alien1@species_call%human%shepbird%buttface%daddy:to what does your species call itself")
+	tbox("|alien2@species_call%human%shepbird%buttface%daddy:tell us. what does your species call itself?")
 end
 
 function switch_room(dir)
@@ -43,8 +42,22 @@ function switch_room(dir)
 			room_nxt_y = min(wld_h, room_y+1)
 			room_y_spd = wld_spd
 		end
-
+		switch_dialogue(room_nxt_x, room_nxt_y)
 		room_switching = true
+	end	
+end
+
+function switch_dialogue(nextx, nexty) 
+	if nextx == 0 then
+
+	elseif nextx == 1 then
+		tbox("|alien1:we want to learn more about your background")
+		tbox("|alien2@reason_leave%it was a great party%my ship malfunctioned:why did you crash on our planet?")
+	elseif nextx == 2 then
+		tbox("|alien1:we want to make sure you're doing ok emotionally")
+		tbox("|alien2:we want to run a few tests to indicate if you're experiencing any trauma from the crash.")
+		tbox("|alien1:we want to run a few tests to evaluate your long-term memory")
+		tbox("|alien2@is_single%no ;)%we are done here:question 1: are you single?")
 	end
 end
 

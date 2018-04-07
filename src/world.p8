@@ -30,6 +30,12 @@ function tbox_callback(id, select_text, select_num)
 	if id == "species_call" then
 		player_species=select_text
 		tbox("|alien1:ok. I would've preferred et but "..player_species.." is also nice.")
+	elseif id == "reason_leave" then
+		if (select_num == 1) then
+			tbox("|alien1:that is understandable. Im glad it wasnt just another reckless partier")
+		else
+			tbox("|alien1:...")
+		end
 	end
 end
 
