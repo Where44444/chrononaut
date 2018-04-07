@@ -38,6 +38,7 @@ end
 
 function reset_time()
 	gen_player(3, 3)
+	set_room(0,0)
 end
 
 function _init()
@@ -49,6 +50,19 @@ end
 
 function _update60()
 	move_actors(actors, function(x, y) return fget(mget(x, y), 1) end)
+
+
+	if btnp(0) then
+		switch_room(0)
+	elseif btnp(1) then
+		switch_room(1)
+	elseif btnp(2) then
+		switch_room(2)
+	elseif btnp(3) then
+		switch_room(3)
+	end
+
+	update_room_switch()
 	tbox_interact()
 	global_time += 1
 end
@@ -56,7 +70,7 @@ end
 function _draw()
 	cls()
 
-	map(0, 0, 0, 0, 16, 16)
+	draw_rooms()
 	foreach(actors, function(a) debug_actor_box(a, 9) end)
 
 	tbox_draw(7, 0, 2, true)
