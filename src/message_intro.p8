@@ -6,6 +6,7 @@ end
 
 function print_center(text, y, col)
 	print(text, 64 - #text/2*4, y, col)
+
 end
 
 function print_message()
