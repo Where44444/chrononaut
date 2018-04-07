@@ -8,6 +8,8 @@ function _init()
 		{ update_world, draw_world, nil, init_world },
 	} )
 
+	music(0)
+
 	global_time = 0
 end
 
