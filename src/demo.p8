@@ -67,7 +67,5 @@ function _draw()
 	draw_rooms()
 	foreach(actors, function(a) debug_actor_box(a, 9) end)
 
-	print('pico project!', 20, 20, 8)
-
 	tbox_draw(7, 0, 2)
 end
