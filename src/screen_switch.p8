@@ -1,3 +1,11 @@
+-- checks the player's position and switches the room if needed.
+function pl_room_update()
+	if     pl.x <  room_x*16    then switch_room(0)
+	elseif pl.x >  room_x*16+16 then switch_room(1)
+	elseif pl.y <  room_y*16    then switch_room(2)
+	elseif pl.y >  room_y*16+16 then switch_room(3) end
+end
+
 -- x and y are in room coordinates (x < wld_w, y < wld_h)
 function set_room(x, y)
 	wld_w, wld_h = 8, 4

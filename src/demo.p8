@@ -49,19 +49,13 @@ function _init()
 end
 
 function _update60()
-	move_actors(actors, function(x, y) return fget(mget(x, y), 1) end)
-	
-	if btnp(0) then
-		switch_room(0)
-	elseif btnp(1) then
-		switch_room(1)
-	elseif btnp(2) then
-		switch_room(2)
-	elseif btnp(3) then
-		switch_room(3)
+	if not room_switching and not tbox_active() then
+		move_actors(actors, function(x, y) return fget(mget(x, y), 1) end)
+		pl_room_update()
 	end
-
+	
 	update_room_switch()
+
 	tbox_interact(function(id, pick, select) tbox("|miii:okay i wil lguess "..pick) end)
 	global_time += 1
 end
