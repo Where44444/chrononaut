@@ -10,7 +10,7 @@ end
 function draw_world()
 	draw_rooms()
 	--foreach(actors, function(a) debug_actor_box(a, 9) end)
-	foreach(actors,draw_actor)
+	for a in all(actors) do a.draw(a) end
 	tbox_draw(7, 0, 2)
 end
 
@@ -48,6 +48,7 @@ function gen_player(x, y)
 	pl.bounce = 0
 	pl.touchable = true
 	pl.solid = true
+	pl.draw = draw_player
 	add(actors,pl)
 end
 
