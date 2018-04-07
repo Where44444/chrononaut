@@ -3,7 +3,16 @@ function init_world()
 
 	spawn_doors()
 	reset_time()
-	tbox("|bob@he%baou%bni:4 5 6 7 8 9 0 1 2 3 4")
+	tbox("|alien1 & alien2: *snickering in not-alien*")
+	tbox("|alien2:*whispering* I think he is awake")
+	tbox("|alien1:yes hello?")
+	tbox("|alien2:hi there! welcome to our planet!")
+	tbox("|alien1:do not feel alarmed. we are commissioned researchers. We just want to learn about your species.")
+	tbox("|alien2:to what does your species call itself")
+	tbox("|bob@he%human%shepbird%buttface%daddy:to what does your species call itself")
+	tbox("|alien1:ok [name]")
+	tbox("|alien1:we don't really have that exciting for you to do though.")
+	tbox("|alien2@he%sure%lol no:would it be chill if you just ran around the map and did random crap")
 end
 
 function draw_world()
