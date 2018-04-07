@@ -11,7 +11,7 @@ end
 
 function update_world()
 	if not room_switching and not tbox_active() then
-		move_actors(actors, function(x, y) return fget(mget(x, y), 1) end)
+		move_actors(actors, function(x, y) return fget(mget(x, y), 0) end)
 		pl_room_update()
 	end
 	
@@ -29,12 +29,12 @@ end
 function gen_player(x, y)
 	pl = make_col_actor(8,8)
 	pl.spd = .05
-	pl.w, pl.h = .5, .5
+	pl.w, pl.h = .3, .3
 	pl.move = function(a) move_controller(a, a.spd) end
 	pl.inertia = .6
 	pl.bounce = 0
 	pl.touchable = true
-	pl.solid = false
+	pl.solid = true
 	add(actors,pl)
 end
 
@@ -63,4 +63,3 @@ function gen_debug_enem2(x, y)
 	add(actors,e)
 	return e
 end
-

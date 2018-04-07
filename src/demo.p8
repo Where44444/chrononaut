@@ -4,6 +4,7 @@ function _init()
 	palt(14, true)
 	g_tl = tl_init( {
 		{ update_title, draw_title, nil, init_title },
+		{ update_message, print_message, nil },
 		{ update_world, draw_world, nil, init_world },
 	} )
 
