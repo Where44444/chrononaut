@@ -1,2 +1,3 @@
 # chrononaut
-A pico 8 game from a jam!
+A astro pico 8 game.
+
