@@ -53,7 +53,8 @@ function _update60()
 		move_actors(actors, function(x, y) return fget(mget(x, y), 1) end)
 		pl_room_update()
 	end
-	
+
+	update_room()
 	update_room_switch()
 
 	tbox_interact(function(id, pick, select) tbox("|miii:okay i wil lguess "..pick) end)
