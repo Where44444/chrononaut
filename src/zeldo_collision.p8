@@ -15,8 +15,10 @@ function make_col_actor(x, y)
 	a.is_outside = false -- if true, then the character is out of bounds.
 	a.x, a.y, a.dx, a.dy = x, y, 0.0, 0.0 -- position and speed.
 	a.w, a.h = 0.4, 0.4 -- collision radius width and height
+	a.spr_w, a.spr_h = 1, 1
 
 	a.move = function(self) end -- called every frame.
+	a.draw = function(self) draw_actor(self) end
 	a.hit = function(other) end -- called if two actors in bounds are touching each other.
 
 	return a
@@ -142,63 +144,3 @@ function has_touchable(actor_list)
 	return false
 end
 
-anitime = 0
-	dir = 0
-function draw_actor(a)
-	local xoff = room_x*8*16
-	local yoff = room_y*8*16
-	local x1 = (a.x-.5) * 8
-	local y1 = (a.y-.5)*8
-	anitime += 1
-
-	if (a.spr >= 0 and a.spr <= 8) then --If its the astronaut sprite
-
-if (btn(0) or btn(1) or btn(2) or btn(3))
-then
-	
-		if btn(0) --Left
-		then
-			dir = 0
-			spr(anitime % 3 + 3, x1-xoff, y1-yoff, 1, 1, true, false)
-		end
-
-		if btn(1) --Right
-		then
-			dir = 1
-			spr(anitime % 3 + 3, x1-xoff, y1-yoff)
-		end
-
-		if btn(2) --Up
-		then
-			dir = 2
-			spr(anitime % 3 + 6, x1-xoff, y1-yoff)
-		end
-
-		if btn(3) --Down
-		then
-			dir = 3
-			spr(anitime % 3, x1-xoff, y1-yoff)
-		end
-
-	else
-
-		if (dir == 0) spr(3, x1-xoff, y1-yoff, 1, 1, true, false)
-		if (dir == 1) spr(3, x1-xoff, y1-yoff, 1, 1)
-		if (dir == 2) spr(6, x1-xoff, y1-yoff, 1, 1)
-	  if (dir == 3) spr(0, x1-xoff, y1-yoff, 1, 1)
-	end
-
-	end
-
-end
-
--- todo, remove this for final game.
-function debug_actor_box(a, col)
-	local xoff = room_x*8*16
-	local yoff = room_y*8*16
-	local x1 = (a.x-.5) * 8
-	local x2 = (a.x+.5)*8 - 1
-	local y1 = (a.y-.5)*8
-	local y2 = (a.y+.5)*8 - 1
-	rect(x1-xoff, y1-yoff, x2-xoff, y2-yoff, col)
-end
