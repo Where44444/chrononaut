@@ -77,5 +77,5 @@ end
 
 function draw_rooms()
 	-- draw 9x9 at start
-	map(0, 0, -room_x*16*8, -room_y*16*8, 64, 128)
+	map(0, 0, -room_x*16*8, -room_y*16*8, 128, 64)
 end

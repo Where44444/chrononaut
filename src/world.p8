@@ -4,7 +4,12 @@ function init_world()
 	actors = {}
 
 	spawn_doors()
+	spawn_entities()
 	reset_time()
+end
+
+function spawn_entities()
+	gen_dawg(40, 10)
 end
 
 function draw_world()
