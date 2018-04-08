@@ -48,7 +48,7 @@ function gen_duck(x, y)
 	d.bounce = 0
 	d.touchable = true
 	d.solid = false
-	d.static = false
+	d.static = true
 	d.quack = 0
 
 	d.draw = function(a)
