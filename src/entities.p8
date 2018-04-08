@@ -43,7 +43,6 @@ function gen_duck(x, y)
 	d.w, d.h = 1, 1
 	d.spr_w = 2
 	d.spr_h = 2
-
 	d.inertia = 0
 	d.bounce = 0
 	d.touchable = true
@@ -76,4 +75,18 @@ function gen_duck(x, y)
 	end
 
 	add(actors, d)
+end
+
+function gen_portal(x, y)
+	local d = make_col_actor(x,y)
+	d.spr = 71
+  d.timer = 0
+	d.move = function(a) d.timer += 1 end
+	d.spd = .05
+	d.w, d.h = .3, .3
+
+	d.draw = function(a)
+		spr_off(d.timer % 3 + 71, d.x, d.y, 1, 2, false, false)
+			d.open = true
+		end
 end

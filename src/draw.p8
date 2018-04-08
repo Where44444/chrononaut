@@ -11,7 +11,7 @@ function draw_player(a)
 
 if (btn(0) or btn(1) or btn(2) or btn(3))
 then
-	
+
 		if btn(0) --Left
 		then
 			dir = 0
