@@ -10,6 +10,7 @@ end
 
 function spawn_entities()
 	gen_dawg(40, 10)
+	gen_portal(63.5,23.5)
 end
 
 function draw_world()

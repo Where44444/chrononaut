@@ -143,4 +143,3 @@ function has_touchable(actor_list)
 	end
 	return false
 end
-
