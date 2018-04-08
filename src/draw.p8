@@ -7,30 +7,30 @@ function draw_player(a)
 	local y1 = (a.y-.5)*8
 	anitime += 1
 
-	if (a.spr >= 0 and a.spr <= 8) then --If its the astronaut sprite
+	if (a.spr >= 0 and a.spr <= 8) then --if its the astronaut sprite
 
 if (btn(0) or btn(1) or btn(2) or btn(3))
 then
 
-		if btn(0) --Left
+		if btn(0) --left
 		then
 			dir = 0
 			spr(anitime % 3 + 3, x1-xoff, y1-yoff, 1, 1, true, false)
 		end
 
-		if btn(1) --Right
+		if btn(1) --right
 		then
 			dir = 1
 			spr(anitime % 3 + 3, x1-xoff, y1-yoff)
 		end
 
-		if btn(2) --Up
+		if btn(2) --up
 		then
 			dir = 2
 			spr(anitime % 3 + 6, x1-xoff, y1-yoff)
 		end
 
-		if btn(3) --Down
+		if btn(3) --down
 		then
 			dir = 3
 			spr(anitime % 3, x1-xoff, y1-yoff)

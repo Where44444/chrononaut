@@ -39,7 +39,7 @@ function tbox_callback(id, select_text, select_num)
 		tbox("|alien1:ok. i would've preferred et but "..player_species.." is also nice.")
 	elseif id == "reason_leave" then
 		if (select_num == 1) then
-			tbox("|alien1:...If youre looking for Arizona State your on the wrong planet.")
+			tbox("|alien1:...if youre looking for arizona state your on the wrong planet.")
 		else
 			tbox("|alien1:that is understandable. im glad you arent just another reckless partier")
 		end
@@ -51,7 +51,7 @@ function tbox_callback(id, select_text, select_num)
 		end
 	elseif id == "abuse" then
 		if (select_num == 1 or select_num == 2) then
-			tbox("|alien1: specimen seems to not like abuse. thats good.")
+			tbox("|alien1:specimen seems to not like abuse. thats good.")
 		else
 			tbox("|alien1:...what a savage")
 		end
