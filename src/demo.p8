@@ -18,7 +18,6 @@ function _update60()
 	global_time += 1
 end
 
-
 function _draw()
 	cls()
 	tl_draw(g_tl)

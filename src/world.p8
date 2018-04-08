@@ -10,6 +10,7 @@ end
 
 function spawn_entities()
 	gen_dawg(40, 10)
+	gen_duck(-1, 20)
 end
 
 function draw_world()
