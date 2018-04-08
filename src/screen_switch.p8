@@ -63,10 +63,13 @@ function switch_dialogue(nextx, nexty)
 		tbox("|alien1&alien2: ahahahahahaahahahaha!")
 		tbox("|alien2: ok "..player_species.." we are done abusing the puppy.")
 		tbox("|alien1@abuse%you guys are evil %i hated that% 2002 wants their joke back% that was hilarious%: how did you feel?")
-	elseif nextx == 3 then	
+	elseif nextx == 3 and nexty == 0 then	
 		tbox("|alien1:we have some more questions.")
 		tbox("|alien1:we want to run a few tests to evaluate your long-term memory")
 		tbox("|alien2@is_single%no ;)%we are done here:question 1, are you single?")
+	elseif nextx == 3 and nexty == 1 then	
+		tbox("|alien1:theres no time! run into the portal!")
+		tbox("|alien2:do it because we told you to!")
 	end
 end
 
