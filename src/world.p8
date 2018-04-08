@@ -19,6 +19,10 @@ function draw_world()
 	--foreach(actors, function(a) debug_actor_box(a, 9) end)
 	for a in all(actors) do a.draw(a) end
 	tbox_draw(7, 0, 2)
+
+	if attempt > 0 then
+		print("ducks: "..attempt, 2, 2, 0)
+	end
 end
 
 function update_world()
