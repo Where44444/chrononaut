@@ -1,15 +1,12 @@
 player_species=""
 
 function init_world()
-	actors = {}
-
-	spawn_doors()
 	reset_time()
-	spawn_entities()
 end
 
 function spawn_entities()
 	gen_dawg(40, 10)
+	gen_dawg(57.5, 10.5)
 	gen_duck(-1, 20)
 	gen_portal(63.5,23.5)
 end
@@ -47,7 +44,10 @@ function tbox_callback(id, select_text, select_num)
 end
 
 function reset_time()
+	actors = {}
+	spawn_doors()
 	gen_player(3, 3)
+	spawn_entities()
 	set_room(0,0)
 end
 

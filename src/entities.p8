@@ -80,13 +80,21 @@ end
 function gen_portal(x, y)
 	local d = make_col_actor(x,y)
 	d.spr = 71
-  d.timer = 0
+	d.timer = 0
 	d.move = function(a) d.timer += 1 end
 	d.spd = .05
-	d.w, d.h = .3, .3
+	d.w, d.h = .5, 1
 
 	d.draw = function(a)
 		spr_off(d.timer % 3 + 71, d.x, d.y, 1, 2, false, false)
 			d.open = true
 		end
+
+	d.hit = function(other)
+		if other == pl then
+			reset_time()
+		end
+	end
+
+	add(actors, d)
 end
