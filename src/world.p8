@@ -4,8 +4,8 @@ function init_world()
 	actors = {}
 
 	spawn_doors()
-	spawn_entities()
 	reset_time()
+	spawn_entities()
 end
 
 function spawn_entities()
