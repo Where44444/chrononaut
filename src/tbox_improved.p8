@@ -242,9 +242,9 @@ function draw_arrow(x, y, col, horizontal)
 end
 
 function draw_options(y0, b_w, fg_col, bg_col, options)
-	local height = #options * 6
-	local y1 = y0-b_w*4-height
-	local y2 = y0- 1
+	local height = #options * 7
+	local y1 = y0-b_w*2-height - 1
+	local y2 = y0
 
 	local opt_width = 0
 	for opt in all(options) do

@@ -23,6 +23,7 @@ function gen_door_1(x, y)
 	d.static = true
 	d.open = false
 	d.timer = 0
+	d.maxtimer = 4
 
 	d.draw = function(a)
 		spr_off(64 + flr(d.timer), d.x-.5, d.y-.5, 1, d.spr_h, false, false)
@@ -34,8 +35,8 @@ function gen_door_1(x, y)
 			d.timer += .2
 		end
 
-		if d.timer >= 4 then
-			d.timer = 4
+		if d.timer >= d.maxtimer then
+			d.timer = d.maxtimer
 			d.touchable = false
 		end
 	end
@@ -50,7 +51,7 @@ end
 
 function gen_door_2(x, y)
 	local d = gen_door_1(x, y)
-
+d.maxtimer = 6
 	d.draw = function(a)
 		spr_off(96 + flr(d.timer), d.x-.5, d.y-.5, 1, 1, false, false)
 		spr_off(96 + flr(d.timer), d.x-.5, d.y+.5, 1, 1, false, false)
