@@ -45,7 +45,13 @@ function tbox_callback(id, select_text, select_num)
 		if (select_num == 1) then
 			tbox("|alien1:what? me!? i dont even know what to say.... *alien 1 begins smirking and blushing immensely*")
 		else
-			tbox("|alien1:...")
+			tbox("|alien1:...its just procedure but well move on")
+		end
+	elseif id == "abuse" then
+		if (select_num == 1 || select_num == 2) then
+			tbox("|alien1: specimen seems to not like abuse. thats good.")
+		else
+			tbox("|alien1:...what a savage")
 		end
 	end
 end

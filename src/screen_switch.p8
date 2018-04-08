@@ -54,10 +54,19 @@ function switch_dialogue(nextx, nexty)
 		tbox("|alien1:we want to learn more about your background")
 		tbox("|alien2@reason_leave%it was a great party%my ship malfunctioned:why did you crash on our planet?")
 	elseif nextx == 2 then
-		tbox("|alien1:we want to make sure you're doing ok emotionally")
-		tbox("|alien2:we want to run a few tests to indicate if you're experiencing any trauma from the crash.")
+		tbox("|alien1:we want to make sure you're psychological conditioning")
+		tbox("|alien1:we need to see how you react to different forms of abuse.")
+		tbox("|alien2:in the center of this room we have a lifeform known in your world as a puppy")
+		tbox("|alien1:we will now commence in the attacking of this puppy")
+		tbox("|alien1: hey puppy, thats a nice collar.")
+		tbox("|alien2: did your mom make it for you")
+		tbox("|alien1&alien2: ahahahahahaahahahaha!")
+		tbox("|alien2: ok "..player_species.." we are done abusing the puppy.")
+		tbox("|alien1@abuse%you guys are evil %i hated that% 2002 wants their joke back% that was hilarious%: how did you feel?")
+	elseif nextx == 3 then	
+		tbox("|alien1:we have some more questions.")
 		tbox("|alien1:we want to run a few tests to evaluate your long-term memory")
-		tbox("|alien2@is_single%no ;)%we are done here:question 1: are you single?")
+		tbox("|alien2@is_single%no ;)%we are done here:question 1, are you single?")
 	end
 end
 
