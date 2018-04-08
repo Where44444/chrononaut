@@ -5,9 +5,12 @@ function init_world()
 end
 
 function spawn_entities()
+	for i=1,attempt do
+		printh("duck spawn "..i)
+		gen_duck(rnd(100)+20, rnd(60)+20)
+	end
 	gen_dawg(40, 10)
 	gen_dawg(57.5, 10.5)
-	gen_duck(-1, 20)
 	gen_portal(63.5,23.5)
 end
 
@@ -47,7 +50,7 @@ function tbox_callback(id, select_text, select_num)
 			tbox("|alien1:...its just procedure but well move on")
 		end
 	elseif id == "abuse" then
-		if (select_num == 1 || select_num == 2) then
+		if (select_num == 1 or select_num == 2) then
 			tbox("|alien1: specimen seems to not like abuse. thats good.")
 		else
 			tbox("|alien1:...what a savage")
@@ -56,6 +59,7 @@ function tbox_callback(id, select_text, select_num)
 end
 
 function reset_time()
+	attempt += 1
 	actors = {}
 	spawn_doors()
 	gen_player(3, 3)

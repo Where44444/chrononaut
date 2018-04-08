@@ -2,6 +2,9 @@ function _init()
 	-- sprite background for the game
 	palt(0, false)
 	palt(14, true)
+
+	attempt = -1
+
 	g_tl = tl_init( {
 		{ update_title, draw_title, nil, init_title },
 		{ update_message, print_message, nil },
