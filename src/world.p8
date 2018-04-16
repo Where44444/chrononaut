@@ -1,7 +1,24 @@
-player_species=""
-
 function init_world()
 	reset_time()
+
+	id_funcs = {
+		species_call=function(n, t)
+			player_species = t
+			tbox("|alien1:ok. i would've preferred et but "..player_species.." is also nice.")
+		end,
+		reason_leave=function(n) 
+			if n == 1 then tbox("|alien1:...if youre looking for arizona state your on the wrong planet.")
+			else tbox("|alien1:that is understandable. im glad you arent just another reckless partier") end
+		end,
+		is_single=function(n)
+			if n == 1 then tbox("|alien1:what? me!? i dont even know what to say.... *alien 1 begins smirking and blushing immensely*")
+			else tbox("|alien1:...its just procedure but well move on") end
+		end,
+		abuse=function(n)
+			if n == 1 or n == 2 then tbox("|alien1:specimen seems to not like abuse. thats good.")
+			else tbox("|alien1:...what a savage") end
+		end
+	}
 end
 
 function spawn_entities()
@@ -16,7 +33,7 @@ end
 
 function draw_world()
 	draw_rooms()
-	--foreach(actors, function(a) debug_actor_box(a, 9) end)
+
 	for a in all(actors) do a.draw(a) end
 	ttbox_draw(7, 0)
 
@@ -33,32 +50,7 @@ function update_world()
 
 	update_room_switch()
 	if not room_switching then
-		tbox_interact(tbox_callback)
-	end
-end
-
-function tbox_callback(id, select_text, select_num)
-	if id == "species_call" then
-		player_species=select_text
-		tbox("|alien1:ok. i would've preferred et but "..player_species.." is also nice.")
-	elseif id == "reason_leave" then
-		if (select_num == 1) then
-			tbox("|alien1:...if youre looking for arizona state your on the wrong planet.")
-		else
-			tbox("|alien1:that is understandable. im glad you arent just another reckless partier")
-		end
-	elseif id == "is_single" then
-		if (select_num == 1) then
-			tbox("|alien1:what? me!? i dont even know what to say.... *alien 1 begins smirking and blushing immensely*")
-		else
-			tbox("|alien1:...its just procedure but well move on")
-		end
-	elseif id == "abuse" then
-		if (select_num == 1 or select_num == 2) then
-			tbox("|alien1:specimen seems to not like abuse. thats good.")
-		else
-			tbox("|alien1:...what a savage")
-		end
+		tbox_interact(id_funcs)
 	end
 end
 

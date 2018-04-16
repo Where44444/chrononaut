@@ -48,17 +48,6 @@ then
 
 end
 
--- todo, remove this for final game.
-function debug_actor_box(a, col)
-	local xoff = room_x*8*16
-	local yoff = room_y*8*16
-	local x1 = (a.x-.5) * 8
-	local x2 = (a.x+.5)*8 - 1
-	local y1 = (a.y-.5)*8
-	local y2 = (a.y+.5)*8 - 1
-	rect(x1-xoff, y1-yoff, x2-xoff, y2-yoff, col)
-end
-
 function draw_actor(a)
 	spr_off(a.spr, a.x, a.y, a.spr_w, a.spr_h)
 end
