@@ -18,7 +18,7 @@ function draw_world()
 	draw_rooms()
 	--foreach(actors, function(a) debug_actor_box(a, 9) end)
 	for a in all(actors) do a.draw(a) end
-	tbox_draw(7, 0, 2)
+	ttbox_draw(7, 0)
 
 	if attempt > 0 then
 		print("ducks: "..attempt, 2, 2, 0)
@@ -26,7 +26,7 @@ function draw_world()
 end
 
 function update_world()
-	if not room_switching and not tbox_active() then
+	if not room_switching and not g_tbox_active then
 		move_actors(actors, function(x, y) return fget(mget(x, y), 0) end)
 		pl_room_update()
 	end
