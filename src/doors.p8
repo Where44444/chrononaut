@@ -26,8 +26,8 @@ function gen_door_1(x, y)
 	d.maxtimer = 4
 
 	d.draw = function(a)
-		spr_off(64 + flr(d.timer), d.x-.5, d.y-.5, 1, d.spr_h, false, false)
-		spr_off(64 + flr(d.timer), d.x+.5, d.y-.5, 1, d.spr_h, true, false)
+		scr_spr(64 + flr(d.timer), d.x-.5, d.y-.5, 1, d.spr_h, false, false)
+		scr_spr(64 + flr(d.timer), d.x+.5, d.y-.5, 1, d.spr_h, true, false)
 	end
 
 	d.move = function(a)
@@ -51,12 +51,12 @@ end
 
 function gen_door_2(x, y)
 	local d = gen_door_1(x, y)
-d.maxtimer = 6
+	d.maxtimer = 6
 	d.draw = function(a)
-		spr_off(96 + flr(d.timer), d.x-.5, d.y-.5, 1, 1, false, false)
-		spr_off(96 + flr(d.timer), d.x-.5, d.y+.5, 1, 1, false, false)
-		spr_off(96 + flr(d.timer), d.x+.5, d.y-.5, 1, 1, false, false)
-		spr_off(96 + flr(d.timer), d.x+.5, d.y+.5, 1, 1, false, false)
+		scr_spr(96 + flr(d.timer), d.x-.5, d.y-.5, 1, 1, false, false)
+		scr_spr(96 + flr(d.timer), d.x-.5, d.y+.5, 1, 1, false, false)
+		scr_spr(96 + flr(d.timer), d.x+.5, d.y-.5, 1, 1, false, false)
+		scr_spr(96 + flr(d.timer), d.x+.5, d.y+.5, 1, 1, false, false)
 	end
 
 	return d

@@ -12,7 +12,7 @@ function gen_dawg(x, y)
 	d.static = false
 
 	d.draw = function(a)
-		spr_off(d.spr, d.x, d.y, 1, 1, false, false)
+		scr_spr(d.spr, d.x, d.y, 1, 1, false, false)
 	end
 
 	d.move = function(a)
@@ -52,14 +52,10 @@ function gen_duck(x, y)
 
 	d.draw = function(a)
 		local flip = d.x - pl.x < 0
-		spr_off(d.spr, d.x-.5, d.y-.5, 2, 2, flip, false)
+		scr_spr(d.spr, d.x-.5, d.y-.5, 2, 2, flip, false)
 
 		if d.quack > 0 then
-			local xoff = room_x*8*16
-			local yoff = room_y*8*16
-			local x = (d.x-.5)*8 - xoff
-			local y = (d.y-.5)*8 - yoff
-			print("quack", x-7, y-10, 0)
+			scr_print("quack", d.x-7/8, d.y-10/8, 0)
 		end
 	end
 
@@ -86,7 +82,7 @@ function gen_portal(x, y)
 	d.w, d.h = .5, 1
 
 	d.draw = function(a)
-		spr_off(d.timer % 3 + 71, d.x, d.y, 1, 2, false, false)
+		scr_spr(d.timer % 3 + 71, d.x, d.y, 1, 2, false, false)
 			d.open = true
 		end
 

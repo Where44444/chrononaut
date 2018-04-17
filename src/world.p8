@@ -32,7 +32,7 @@ function spawn_entities()
 end
 
 function draw_world()
-	draw_rooms()
+	rosw_draw()
 
 	for a in all(actors) do a.draw(a) end
 	ttbox_draw(7, 0)
@@ -43,13 +43,13 @@ function draw_world()
 end
 
 function update_world()
-	if not room_switching and not g_tbox_active then
+	if not g_rosw_switching and not g_tbox_active then
 		move_actors(actors, function(x, y) return fget(mget(x, y), 0) end)
-		pl_room_update()
+		pl_rosw_update()
 	end
 
-	update_room_switch()
-	if not room_switching then
+	rosw_update()
+	if not g_rosw_switching then
 		tbox_interact(id_funcs)
 	end
 end
@@ -60,7 +60,15 @@ function reset_time()
 	spawn_doors()
 	gen_player(3, 3)
 	spawn_entities()
-	set_room(0,0)
+	rosw_set(0,0, 8*16, 4*16, 1)
+
+	tbox("|alien1 & alien2:*snickering*")
+	tbox("|alien2:i think he is awake")
+	tbox("|alien1:yes hello?")
+	tbox("|alien2:hi there! welcome to our planet!")
+	tbox("|alien1:do not feel alarmed. we are scientists here to help.")
+	tbox("|alien1:we want to learn more about your species.")
+	tbox("|alien2@species_call%human%shepbird%buttface%daddy:tell us. what does your species call itself?")
 end
 
 function gen_player(x, y)
@@ -74,6 +82,10 @@ function gen_player(x, y)
 	pl.touchable = true
 	pl.solid = true
 	pl.draw = draw_player
+	pl.dir = 3
+	pl.timer = 3
+	pl.flip_x = false
+	pl.flip_y = false
 	add(actors,pl)
 end
 
@@ -102,3 +114,43 @@ function gen_debug_enem2(x, y)
 	add(actors,e)
 	return e
 end
+
+function switch_dialogue(nextx, nexty) 
+	if not nextx then return end
+	if nextx == 0*16 then
+
+	elseif nextx == 1*16 then
+		tbox("|alien1:we want to learn more about your background")
+		tbox("|alien2@reason_leave%it was a great party%my ship malfunctioned:why did you crash on our planet?")
+	elseif nextx == 2*16 then
+		tbox("|alien1:we want to make sure you're psychological conditioning")
+		tbox("|alien1:we need to see how you react to different forms of abuse.")
+		tbox("|alien2:in the center of this room we have a lifeform known in your world as a puppy")
+		tbox("|alien1:we will now commence in the attacking of this puppy")
+		tbox("|alien1:hey puppy, thats a nice collar.")
+		tbox("|alien2:did your mom make it for you?")
+		tbox("|alien1&alien2:ahahahahahaahahahaha!")
+		tbox("|alien2:ok "..player_species.." we are done abusing the puppy.")
+		tbox("|alien1@abuse%you guys are evil %i hated that%2002 wants their joke back%that was hilarious%:how did you feel?")
+	elseif nextx == 3*16 and nexty == 0*16 then	
+		tbox("|alien1:we have some more questions.")
+		tbox("|alien1:we want to run a few tests to evaluate your long-term memory")
+		tbox("|alien2@is_single%no ;)%we are done here:question 1, are you single?")
+	elseif nextx == 3*16 and nexty == 1*16 then	
+		tbox("|alien1:theres no time! run into the portal!")
+		tbox("|alien2:do it because we told you to!")
+	end
+end
+
+-- checks the player's position and switches the room if needed.
+function pl_rosw_update()
+	local dir
+
+	if     pl.x < g_x    then dir=0
+	elseif pl.x > g_x+16 then dir=1
+	elseif pl.y < g_y    then dir=2
+	elseif pl.y > g_y+16 then dir=3 end
+
+	if dir then switch_dialogue(rosw_move(dir)) end
+end
+
